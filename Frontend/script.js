@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const API_URL = "http://localhost:4000/books";
+  const API_URL = "https://library-reading-list-back.onrender.com/books";
 
   const titleInput = document.getElementById("titleInput");
   const authorInput = document.getElementById("authorInput");
