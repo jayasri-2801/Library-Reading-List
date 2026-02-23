@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>📚 Digital Book Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h1>📚 My Reading List</h1>
+    <div class="container">
 
-    <div class="input-section">
-        <input type="text" id="titleInput" placeholder="Book Title">
-        <input type="text" id="authorInput" placeholder="Author Name">
-        <button id="addBookBtn">Add Book</button>
+        <h1>📚 My Reading List</h1>
+
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="titleInput" 
+                placeholder="Book Title"
+            >
+
+            <input 
+                type="text" 
+                id="authorInput" 
+                placeholder="Author Name"
+            >
+
+            <button id="addBookBtn">
+                Add Book
+            </button>
+        </div>
+
+        <div class="stats">
+            Total Books: 
+            <span id="totalBooks">0</span>
+        </div>
+
+        <ul id="bookList"></ul>
+
     </div>
 
-    <div class="stats">
-        Total Books: <span id="totalBooks">0</span>
-    </div>
+    <script src="script.js"></script>
 
-    <ul id="bookList"></ul>
-</div>
-
-<script src="script.js"></script>
 </body>
+
 </html>
