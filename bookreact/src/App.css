@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    background-size: 400% 400%;
+    animation:gradientShift 20s ease infinite;
+}
+
+/* 🌌 Floating Animated Circles with color shift */
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    filter:blur(120px);
+    animation:float 15s infinite alternate ease-in-out, colorShift 10s infinite alternate;
+}
+
+body::before{
+    top:-200px;
+    left:-200px;
+}
+
+body::after{
+    bottom:-200px;
+    right:-200px;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    100%{transform:translateY(80px);}
+}
+
+/* 🌈 Color shifting for circles */
+@keyframes colorShift{
+    0%{background:#ff00cc;}
+    25%{background:#ff9900;}
+    50%{background:#00ffcc;}
+    75%{background:#3300ff;}
+    100%{background:#ff00cc;}
+}
+
+/* 🌈 Animated Gradient Shift for body */
+@keyframes gradientShift{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    width:100%;
+    max-width:1000px;
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(25px);
+    background:rgba(255,255,255,0.05);
+    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+    text-align:center;
+    z-index:2;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ✨ Container Gradient Overlay Animation */
+.container::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg, #ff0099, #493240, #00f5ff, #fffc00);
+    background-size:300% 300%;
+    animation:containerGradient 12s linear infinite;
+    opacity:0.2;
+    pointer-events:none;
+}
+
+@keyframes containerGradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+h1{
+    color:white;
+    margin-bottom:30px;
+    font-size:32px;
+    letter-spacing:1px;
+}
+
+.input-section{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    outline:none;
+    font-size:14px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+
+input::placeholder{
+    color:rgba(255,255,255,0.7);
+}
+
+button{
+    padding:12px 18px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#ff00cc,#3333ff);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #ff00cc,0 0 25px #3333ff;
+}
+
+.stats{
+    color:white;
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+/* 📚 BOOK GRID */
+ul{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    gap:35px;
+    justify-content:center;
+}
+
+/* 📖 BOOK CARD */
+li{
+    width:190px;
+    height:260px;
+    padding:20px;
+    border-radius:8px 4px 4px 8px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+    transition:0.5s ease, box-shadow 1s ease-in-out;
+    transform-style:preserve-3d;
+    box-shadow:10px 15px 35px rgba(0,0,0,0.6);
+    animation:bookGlow 5s infinite alternate;
+}
+
+/* 💫 Books subtle glow animation */
+@keyframes bookGlow{
+    0%{box-shadow:10px 15px 35px rgba(0,0,0,0.6);}
+    50%{box-shadow:10px 15px 40px rgba(255,255,255,0.2);}
+    100%{box-shadow:10px 15px 35px rgba(0,0,0,0.6);}
+}
+
+/* 🎨 Random Color Books */
+li:nth-child(6n+1){background:linear-gradient(135deg,#ff416c,#ff4b2b);}
+li:nth-child(6n+2){background:linear-gradient(135deg,#7f00ff,#e100ff);}
+li:nth-child(6n+3){background:linear-gradient(135deg,#00c6ff,#0072ff);}
+li:nth-child(6n+4){background:linear-gradient(135deg,#11998e,#38ef7d);}
+li:nth-child(6n+5){background:linear-gradient(135deg,#fc4a1a,#f7b733);}
+li:nth-child(6n+6){background:linear-gradient(135deg,#f953c6,#b91d73);}
+
+/* 📚 Spine Effect */
+li::before{
+    content:"";
+    position:absolute;
+    left:-15px;
+    top:0;
+    width:15px;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+    border-radius:5px 0 0 5px;
+    box-shadow:inset -4px 0 8px rgba(0,0,0,0.5);
+}
+
+/* ✨ Hover Effect */
+li:hover{
+    transform:rotateY(-15deg) rotateX(8deg) scale(1.08);
+    box-shadow:15px 25px 50px rgba(255,255,255,0.5);
+}
+
+/* 📖 Title */
+li strong{
+    font-size:16px;
+    font-weight:700;
+    text-align:center;
+    line-height:1.4;
+}
+
+/* ✍ Author */
+li small{
+    font-size:13px;
+    text-align:center;
+    opacity:0.9;
+}
+
+/* 📗 Read Style */
+li.read{
+    box-shadow:0 0 30px #00ff88;
+    border:2px solid #00ff88;
+}
+
+/* ❌ Remove Animation */
+li.removing{
+    animation:slideOut 0.4s forwards;
+}
+
+@keyframes slideOut{
+    to{
+        opacity:0;
+        transform:translateY(100px);
+    }
+}
+
+/* 🎛 Action Buttons */
+.actions{
+    display:flex;
+    justify-content:space-between;
+}
+
+.actions button{
+    font-size:11px;
+    padding:6px 8px;
+}
